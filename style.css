@@ -20,16 +20,29 @@
 }
 .linkkilista{
   margin-top:10px;
-  border:1px #166807 soldi;
+  border:4px #166807 solid;
   padding:20px;
   border-radius:20px;
 }
 .linkkilista h2{
   text-align:center;
-  color: #6D0367
+  color: #6D0367;
 }
 .linkkilista ul{
   list-style-type:none;
+}
+.linkkilista li{
+  border-bottom:double 1px;
+}
+a{
+  text-decoration:none;
+  color:black;
+}
+a:hover{
+  color:aqua;
+}
+a:active{
+  color:yellow;
 }
 .yhteydenotto label{
   display:block;
@@ -52,6 +65,7 @@
   float: left;
   width:33.3%;
   border:2px solid black;
+  border-radius:20px;
   padding:10px;
   box-sizing: border-box;
   margin-top:25px;

@@ -1,0 +1,38 @@
+.navigaatio{
+  background-color: black;
+  color: white;
+  padding:10px;
+  border:none;
+  text-decoration:dashed underline;
+  position: fixed;
+  top:100px;
+  left:0px;
+}
+a{
+  text-decoration:none;
+  color:white;
+}
+a:hover{
+  color:red;
+}
+a:active{
+  color:white;
+}
+.koulu{
+  margin-top:10px;
+  border:4px #166807 solid;
+  padding:20px;
+  border-radius:20px;
+}
+.Tyokokemus h2{
+  color: #6D0367;
+}
+.tyokokemus ul{
+  list-style-type:none;
+}
+.työkokemus: 
+
+
+
+
+
