@@ -1,0 +1,16 @@
+body{
+  background:lightgoldenrodyellow;
+}
+ul{
+  list-style:none;
+}
+ul li{
+  padding:5px;
+  background:lightsteelblue;
+  margin:5px -40px;
+}
+header{
+  background:lightsteelblue;
+  padding:10px;
+  text-align:center;
+}
