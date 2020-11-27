@@ -9,10 +9,11 @@
   </head>
   <!--Tämä on kommenttia-->
   <body>
+  <div class ="sivu">
     <h1>Onni Björn - Portfolio</h1>
 
     <h2>Tietoa</h2> 
-      <div>
+      <div class ="tieto">
         Olen 19 vuotias rauhallinen opiskelija. Harrastuksiini kuuluu päivittäinen videopelaaminen. 
       </div>
 
@@ -26,26 +27,40 @@
    
       <div class="tyokokemus">
         <h2>Työkokemus</h2>
+        <div class="kuva">
         <ul>
           <li>Peruskoulun Tet-jakso - Siwa 3-vko</li>
           <li>Kymppiluokan Tet-jakso - Arjen Aarteet kirpputori 1-vko</li>
         </ul>
+        </div>
       </div>    
-    <h2>Kielitaito</h2> 
+    <h2>Kielitaito</h2>
+    <div class ="taito"> 
       <ul>
         <li>Suomi - Äidinkieli</li>
         <li>Englanti - Hyvä</li>
         <li>Ruotsi - Perusteet</li>
       </ul>
-
-    <h2>Ota yhteyttä</h2> 
-      <label>Sähköpostiosoite:</label>
+    </div>
+    <a name="yhteytta"></a>
+    <h2>Ota yhteyttä</h2>
+    <div class ="lomake" >
+      <label>Sähköpostiosoite:</label><br />
       <input type="email"><br />
-      <label>Viesti: </label>
-      <textarea></textarea><br />
+      <label>Viesti:</label><br />
+      <textarea></textarea>
+    </div>
+    <div class="laatikko">
+    onni.bjorn@edu.salpaus.fi
+    </div>
+    <div class="laatikko2">
+    <img src="onni.jpg" width="140">   
+    </div>  
+  </div>
   <div class ="navigaatio">
     <a href="Saaasema.html">Sääasema</a><br />
-    <a href="tyyliharjoitus.html">Tyylit</a>
-  </div>  
+    <a href="tyyliharjoitus.html">Tyylit</a><br />
+    <a href="#yhteytta">Yhteydenotto lomake</a>
+    </div>
   </body>  
 </html>
