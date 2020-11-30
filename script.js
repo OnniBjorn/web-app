@@ -30,7 +30,7 @@ const merkitseValmiit = document.querySelector('.merkinta');
 merkitseValmiit.addEventListener('click', e => {
   e.preventDefault();
 
-  if(document.querySelector('#tehta').checked)
+  if(document.querySelector('#tehta').checked){
     ul.children[0].innerHTML = '<input type="checkbox" id="tehta" checked>HTML tunnit pidetty';
   }else{
     ul.children[0].innerHTML = '<input type="checkbox" id="tehta">HTML';  
