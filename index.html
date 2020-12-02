@@ -43,13 +43,19 @@
       </ul>
     </div>
     <a name="yhteytta"></a>
+    <form id = "kiitos">
     <h2>Ota yhteyttä</h2>
+    <div class="virheilmoitus"></div>
     <div class ="lomake" >
+      <label>Nimi:</label><br />
+      <input type="email" id = "nimi"><br />
       <label>Sähköpostiosoite:</label><br />
-      <input type="email"><br />
+      <input type="email" id = "osoite"><br />
       <label>Viesti:</label><br />
-      <textarea></textarea>
+      <textarea id = "area"></textarea>
     </div>
+    <input type="submit" value="Lähetä" class="kurssinappi">
+    </form>
     <div class="laatikko">
       onni.bjorn@edu.salpaus.fi
     </div>
@@ -64,5 +70,6 @@
     <a href="scriptharjoitus.html">JavaScript</a>
   </div>
 </div>
+    <script src="indexjs.js"></script>
 </body>  
 </html>
