@@ -18,7 +18,7 @@ kurssinappi.addEventListener('click', e =>{
     setTimeout(() => kurssinappi.value ='Lisää tieto', 3000);
   }else{
     const li = document.createElement('li');
-    li.appendChild(document.createTextNode(${nimiSisalto.value}: $ {asiaSisalto.value}));
+    li.appendChild(document.createTextNode(`${nimiSisalto.value}: ${asiaSisalto.value}`));
     viesti.appendChild(li);
     nimiSisalto.value = '';
     asiaSisalto.value = '';
@@ -50,4 +50,4 @@ merkitseValmiit.addEventListener('click', e => {
   }else{
     ul.children[3].innerHTML = '<input type="checkbox" id="tehtd">CI/CD';
   }
-)};
+});
