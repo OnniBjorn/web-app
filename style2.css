@@ -62,7 +62,9 @@ a:active {
 }
 .lomake input[type="email"],.lomake textarea{
   width:100%;
+
 }
+
 .laatikko{
   float: left;
   width:50%;
