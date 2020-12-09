@@ -1,5 +1,5 @@
 .sivu{
-  background-color:aliceblue;
+  background-color:lightsteelblue;
 }
 .navigaatio{
   background-color: black;
@@ -64,7 +64,6 @@ a:active {
   width:100%;
 
 }
-
 .laatikko{
   float: left;
   width:50%;
@@ -78,6 +77,13 @@ a:active {
   float: left;
   border:10px solid black;
   box-sizing: border-box;
+}
+.asetukset{
+  position: fixed;
+  top:215px;
+  right: 0px;
+  color:white;
+  background: black;
 }
 
 
