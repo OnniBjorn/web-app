@@ -20,12 +20,12 @@ var getJSON = function(url, callback) {
 };
 
 getJSON('https://func-weather.azurewebsites.net/api/HttpTriggerCSharp2?code=03Hf14xSawGyeGtfxZTCLJ5mGLx0GGusap2f3zssPqg6n3KriqizHg==&deviceId=3e0037001947393035313138&amount=10', function(err, data){
-  let taulukko = `<table width="100%" style="border=1px solid black">`;
+  let taulukko = `<table width="100%" style="border=1px solid black"<tr><td>Ilmankosteus</td><td>Lämpötila</td><td>Valo</td></tr>>`;
 
 console.log(data);
 const historia = data.map(function(mittaus){
   
-  taulukko = taulukko + `<tr><td>${mittaus.Hum}</td></tr>`; 
+  taulukko = taulukko + `<tr><td>${mittaus.Hum}</td><td>${mittaus.Temp}</td><td>${mittaus.Light}</td></tr>`; 
 });
 taulukko = taulukko + `</table>`;
 document.body.innerHTML = taulukko;

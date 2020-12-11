@@ -1,3 +1,4 @@
+
 .sivu{
   background-color:lightsteelblue;
 }
@@ -64,6 +65,9 @@ a:active {
   width:100%;
 
 }
+.lomake input[type="text"]{
+  width:100%;
+}
 .laatikko{
   float: left;
   width:50%;
@@ -72,11 +76,13 @@ a:active {
   padding:10px;
   box-sizing: border-box;
   margin-top:25px;
+  position: relative;
 }
 .laatikko2{
   float: left;
   border:10px solid black;
   box-sizing: border-box;
+  position: relative;
 }
 .asetukset{
   position: fixed;
@@ -85,7 +91,10 @@ a:active {
   color:white;
   background: black;
 }
-
+.teemat{
+  list-style-type: none;
+  padding-right:40px;
+}
 
 
 

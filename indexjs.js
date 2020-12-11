@@ -8,7 +8,7 @@
   const tumma= document.querySelector('#musta')
   const vaalea = document.querySelector('#valkoinen')
   const sivu = document.querySelector('.sivu')
-  const asetus = document.querySelector('#asetus')
+  const asetus = document.querySelector('.asetukset')
 
 
 kurssinappi.addEventListener('click', e =>{
@@ -27,21 +27,20 @@ kurssinappi.addEventListener('click', e =>{
 
   }else{
     lomake.innerHTML ='Kiitos viestistäsi ' + (nimiSisalto.value);
+    sendJSON();
     nimiSisalto.value = '';
     osoiteSisalto.value = '';
     area.value = '';
-    sendJSON();
     kurssinappi.style.display = 'none';
-
   }
 });
-const nimikentta = document.querySelector('#nimi').value;
-const osoitekentta = document.querySelector('#osoite').value;
-const viesti = document.querySelector("#area").value;
+//const nimikentta = document.querySelector('#nimi').value;
+//const osoitekentta = document.querySelector('#osoite').value;
+//const viesti = document.querySelector('#area').value;
 
 function sendJSON(){
   let xhr = new XMLHttpRequest();
-  let url = "https://salpausemail.azurewebsites.net/api/HttpTriggerCSharp1?code=lWOELqiU07AqsBviOQYzuNIrQP7xoV7NV7C5W2ctgjIRcf7nXE2biw==";
+  let url = "https://salpausemail.azurewebsites.net/api/HttpTriggerCSharp1?code=lWOELqiU07AqsBviOQYzuNIrQP7xoV7NV7C5W2ctgjIRcf7nXE2biw=="
 
   xhr.open("POST", url, true);
 
@@ -52,14 +51,14 @@ function sendJSON(){
      console.log("valmis, yhteys toimii");
    } 
   };
-console.log("nimikentän sisältö: " + nimikentta);
-console.log("nimikentän sisältö: " + osoitekentta);
-console.log("nimikentän sisältö: " + viesti);
+console.log("nimikentän sisältö: " + nimiSisalto.value);
+console.log("osoitekentän sisältö: " + osoiteSisalto.value);
+console.log("viestikentän sisältö: " + area.value);
 var data = JSON.stringify({
-  "EmailMsg":viesti,
-  "EmailAddress":osoitekentta,
-  "EmailTo": "onni.bjorn@edu.salpaus.fi",
-  "EmailName": nimikentta
+  "EmailMsg":area.value,
+  "EmailAddress":osoiteSisalto.value,
+  "EmailTo": "mira@miravorne.fi",
+  "EmailName": nimiSisalto.value
 });
 xhr.send(data);
 }
@@ -72,7 +71,6 @@ valkoinen.addEventListener('click', e =>{
   e.preventDefault();
   sivu.style.background = 'white';
 })
-
 
 
 
