@@ -9,6 +9,7 @@
   const vaalea = document.querySelector('#valkoinen')
   const sivu = document.querySelector('.sivu')
   const asetus = document.querySelector('.asetukset')
+  const nappula = document.querySelector('#asetus')
 
 
 kurssinappi.addEventListener('click', e =>{
@@ -40,7 +41,7 @@ kurssinappi.addEventListener('click', e =>{
 
 function sendJSON(){
   let xhr = new XMLHttpRequest();
-  let url = "https://salpausemail.azurewebsites.net/api/HttpTriggerCSharp1?code=lWOELqiU07AqsBviOQYzuNIrQP7xoV7NV7C5W2ctgjIRcf7nXE2biw=="
+  let url = "https://salpausemail.azurewebsites.net/api/HttpTriggerCSharp2?code=PnWhScmEcspN8Fy7eYKnIZA37AFgUZ0fMQ1OpXOJ6dtBPBGNXAMIqQ==";
 
   xhr.open("POST", url, true);
 
@@ -55,21 +56,29 @@ console.log("nimikentän sisältö: " + nimiSisalto.value);
 console.log("osoitekentän sisältö: " + osoiteSisalto.value);
 console.log("viestikentän sisältö: " + area.value);
 var data = JSON.stringify({
-  "EmailMsg":area.value,
-  "EmailAddress":osoiteSisalto.value,
-  "EmailTo": "mira@miravorne.fi",
+  "EmailMsg":"Viesti  osoitteesta: " + osoiteSisalto.value + "Viestin sisaltö: " + area.value,
+  //"EmailAddress":osoiteSisalto.value,
+  "EmailTo": "onni.bjorn",
   "EmailName": nimiSisalto.value
 });
 xhr.send(data);
 }
 
+nappula.addEventListener('click', e =>{
+  e.preventDefault();
+  if(asetus.style.display ="none")
+  asetus.style.display =("block");
+});
+
 musta.addEventListener('click', e =>{
   e.preventDefault();
   sivu.style.background = 'grey';
+  asetus.style.display  =("none");
 })
 valkoinen.addEventListener('click', e =>{
   e.preventDefault();
   sivu.style.background = 'white';
+  asetus.style.display  =("none");
 })
 
 

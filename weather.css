@@ -1,0 +1,24 @@
+.takaisin{
+  background-color: black;
+  color: white;
+  padding:10px;
+  border:none;
+  position: fixed;
+  top:100px;
+  right:0px;
+}
+a:link, a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}

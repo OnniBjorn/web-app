@@ -1,13 +1,13 @@
 
 .sivu{
   background-color:lightsteelblue;
+  overflow:hidden;
 }
 .navigaatio{
   background-color: black;
   color: white;
   padding:10px;
   border:none;
-  text-decoration:dashed underline;
   position: fixed;
   top:100px;
   right:0px;
@@ -70,8 +70,7 @@ a:active {
 }
 .laatikko{
   float: left;
-  width:50%;
-  border:2px solid black;
+  border:4px solid #166807;
   border-radius:20px;
   padding:10px;
   box-sizing: border-box;
@@ -86,10 +85,11 @@ a:active {
 }
 .asetukset{
   position: fixed;
-  top:215px;
-  right: 0px;
+  top:210px;
+  right: 5px;
   color:white;
   background: black;
+  display:none;
 }
 .teemat{
   list-style-type: none;
