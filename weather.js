@@ -30,3 +30,5 @@ const historia = data.map(function(mittaus){
 taulukko = taulukko + `</table>`;
 document.body.innerHTML = taulukko;
 });
+
+

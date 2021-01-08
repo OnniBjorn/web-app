@@ -1,9 +1,7 @@
 <html>
   <head>
-    <title>
-      Sääasema
-    </title>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
       // Load the Visualization API and the corechart package.
@@ -32,21 +30,39 @@
         var options = {'title':'Lämpötila',
                        'width':400,
                        'height':300};
+
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Pvm');
+        data2.addColumn('number', '%');
+        data2.addRows([
+          ['1.1.2021', 45],
+          ['2.1.2021', 40],
+          ['3.1.2021', 42],
+          ['4.1.2021', 46],
+          ['5.1.2021', 39]
+        ]);
+        // Set chart options
+        var options2 = {'title':'Ilmankosteus',
+                       'width':400,
+                       'height':300};
+
+        
+
+        // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
+
+        var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+        chart2.draw(data2, options2);
       }
 
     </script>
-                       
-    
-    <link href="weather.css" rel="stylesheet" type="text/css" />
   </head>
+
   <body>
+    <!--Div that will hold the pie chart-->
     <div id="chart_div"></div>
-    <h1>Sääasema</h1>
-    <div class = "takaisin">
-      <a href="index.html">Takaisin</a>
-    </div>      
-    <script src="weather.js"></script>
+    <div id="chart_div2"></div>
   </body>
 </html>
+
