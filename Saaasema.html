@@ -3,50 +3,92 @@
     <title>
       Sääasema
     </title>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
 
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {'packages':['corechart']});
 
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart);
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
+var getJSON = function(url, callback) {
 
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Pvm');
-        data.addColumn('number', 'Asteet');
-        data.addRows([
-          ['1.1.2021', 21],
-          ['2.1.2021', 22],
-          ['3.1.2021', 25],
-          ['4.1.2021', 23],
-          ['5.1.2021', 22]
-        ]);
-        // Set chart options
-        var options = {'title':'Lämpötila',
-                       'width':400,
-                       'height':300};
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.responseType = 'json';
+
+  xhr.onload = function() {
+    var status = xhr.status;
+      if (status == 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status);
       }
+  };
+  xhr.send();
+};
+ function drawChart() {
 
-    </script>
+        getJSON('https://func-weather.azurewebsites.net/api/HttpTriggerCSharp2?code=03Hf14xSawGyeGtfxZTCLJ5mGLx0GGusap2f3zssPqg6n3KriqizHg==&deviceId=3e0037001947393035313138&amount=10', function(err, data){
+        let taulukko = `<table width="100%" style="border=1px solid black"<tr><td>Ilmankosteus</td><td>Lämpötila</td><td>Valo</td></tr>`;
+
+        var dataTemp = new google.visualization.DataTable();
+        dataTemp.addColumn('string', 'Pvm');
+        dataTemp.addColumn('number', 'Lämpötila');
+
+        var dataHum = new google.visualization.DataTable();
+        dataHum.addColumn('string', 'Pvm');
+        dataHum.addColumn('number', 'IlmanKosteus');        
+
+        const historia = data.map(function(mittaus){
+          dataTemp.addRows([
+            [(mittaus.Timestamp).split('.')[0],parseInt(mittaus.Temp)]
+          ]);
+          dataHum.addRows([
+            [(mittaus.Timestamp).split('.')[0],parseInt(mittaus.Hum)]
+          ]);
+         taulukko = taulukko + `<tr><td>${mittaus.Hum}</td><td>${mittaus.Temp}</td><td>${mittaus.Light}</td></tr>`; 
+          });
+
+        taulukko = taulukko + `</table>`;
+        document.querySelector('#taulukko_div').innerHTML = taulukko;
+        
+        var optionsTemp = {'title':'Lämpötila',
+                       'width':1200,
+                       'height':300};
+
+        var optionsHum = {'title':'Ilmankosteus',
+                       'width':1000,
+                       'height':300};                       
+
+        var chart = new google.visualization.LineChart(document.getElementById('lampotila_div'));
+        chart.draw(dataTemp, optionsTemp);
+
+        var chartHum = new google.visualization.ColumnChart(document.getElementById('ilmankosteus_div'));
+        chartHum.draw(dataHum, optionsHum);
+
+
+      });
+    }
+
+
+
+       
+        
+      
+</script>   
                        
     
     <link href="weather.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="chart_div"></div>
     <h1>Sääasema</h1>
     <div class = "takaisin">
       <a href="index.html">Takaisin</a>
     </div>      
-    <script src="weather.js"></script>
+    <div id="taulukko_div">Lataa...</div>
+    <div id="lampotila_div"></div>
+    <div id="ilmankosteus_div"></div>
+    
+    <!--script src="weather.js"></script-->
   </body>
 </html>
